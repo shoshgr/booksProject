@@ -1,0 +1,11 @@
+{
+  "name": "json-server-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch books.json --port 8080"
+  },
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}
