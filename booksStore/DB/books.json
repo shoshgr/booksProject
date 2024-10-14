@@ -1,65 +1,58 @@
 {
-    "books": [
-      {
-        "id": 1,
-        "title": "JavaScript for Beginners",
-        "price": 99.99,
-        "image": "../DB/imgs/book1.png"
-      },
-      {
-        "id": 2,
-        "title": "Advanced Python Programming",
-        "price": 129.99,
-        "image": "../DB/imgs/book2.png"
-      },
-      {
-        "id": 3,
-        "title": "Mastering React",
-        "price": 119.99,
-        "image": "../DB/imgs/book1.png"
-      },
-      {
-        "id": 4,
-        "title": "Data Structures with Java",
-        "price": 89.99,
-        "image": "../DB/imgs/book2.png"
-      },
-      {
-        "id": 5,
-        "title": "Artificial Intelligence: A Guide",
-        "price": 149.99,
-        "image": "../DB/imgs/book1.png"
-      },
-      {
-        "id": 6,
-        "title": "The Complete Guide to Node.js",
-        "price": 139.99,
-        "image": "../DB/imgs/book2.png"
-      },
-      {
-        "id": 7,
-        "title": "Understanding TypeScript",
-        "price": 109.99,
-        "image": "../DB/imgs/book1.png"
-      },
-      {
-        "id": 8,
-        "title": "Web Development with HTML5 & CSS3",
-        "price": 89.99,
-        "image": "../DB/imgs/book2.png"
-      },
-      {
-        "id": 9,
-        "title": "Introduction to Machine Learning",
-        "price": 159.99,
-        "image": "../DB/imgs/book1.png"
-      },
-      {
-        "id": 10,
-        "title": "Design Patterns in Java",
-        "price": 119.99,
-        "image": "../DB/imgs/book2.png"
-      }
-    ]
-  }
-  
+  "books": [
+    {
+      "id": "1",
+      "title": "JavaScript for Beginners",
+      "price": 99.99,
+      "image": "../DB/imgs/book1.png"
+    },
+    {
+      "id": "2",
+      "title": "Advanced Python Programming",
+      "price": 129.99,
+      "image": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "4",
+      "title": "Data Structures with Java",
+      "price": 89.99,
+      "image": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "5",
+      "title": "Artificial Intelligence: A Guide",
+      "price": 149.99,
+      "image": "../DB/imgs/book1.png"
+    },
+    {
+      "id": "6",
+      "title": "The Complete Guide to Node.js",
+      "price": 139.99,
+      "image": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "7",
+      "title": "Understanding TypeScript",
+      "price": 109.99,
+      "image": "../DB/imgs/book1.png"
+    },
+    {
+      "id": "8",
+      "title": "Web Development with HTML5 & CSS3",
+      "price": 89.99,
+      "image": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "9",
+      "title": "Introduction to Machine Learning",
+      "price": 159.99,
+      "image": "../DB/imgs/book1.png"
+    },
+    {
+      "id": "10",
+      "title": "Design Patterns in Java",
+      "price": 119.99,
+      "image": "../DB/imgs/book2.png"
+    }
+  ]
+}

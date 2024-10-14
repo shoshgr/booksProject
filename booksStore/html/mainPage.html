@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book List</title>
+    <link rel="stylesheet" href="../stylesheets/books.css">
 </head>
+
 <body>
-    
+    <header>
+        <button id="addButton">
+            ADD <span class="plusSign">+</span>
+        </button>
+    </header>
+    <div id="container">
+        <h1>Book List</h1>
+        <table id="book-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="book-list"></tbody>
+        </table>
+
+        <div id="formContainer" class="hidden" style="display: none;">
+            <form id="addBookForm">
+                <label for="bookId">ID:</label>
+                <input type="number" id="bookId" required>
+                <label for="bookTitle">Title:</label>
+                <input type="text" id="bookTitle" required>
+                <label for="bookPrice">Price:</label>
+                <input type="number" id="bookPrice" required>
+                <label for="bookImageUrl">Image URL:</label>
+                <input type="text" id="bookImageUrl" required>
+                <button type="submit">Add Book</button>
+                <button type="button" id="closeForm">Close</button>
+            </form>
+        </div>
+        <div id="showContainer" >
+            <h2 id="imageTitle"></h2>
+            <h3 id="bookPrice"></h3> 
+            <img id="bookImage" src="" alt="Book Image" />
+            <div  class="rating">
+                <span class="star" data-value="5">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="1">☆</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/books.js"></script>
 </body>
+
 </html>
