@@ -1,70 +1,144 @@
 {
   "books": [
     {
-      "id": "4",
-      "title": "Data Structures with Java",
-      "price": 89.99,
-      "image": "../DB/imgs/book2.png"
-    },
-    {
-      "id": "5",
-      "title": "Artificial Intelligence: A Guide",
-      "price": 149.99,
-      "image": "../DB/imgs/book1.png"
-    },
-    {
-      "id": "6",
-      "title": "The Complete Guide to Node.js",
-      "price": 139.99,
-      "image": "../DB/imgs/book2.png"
-    },
-    {
-      "id": "7",
-      "title": "Understanding TypeScript",
-      "price": 109.99,
-      "image": "../DB/imgs/book1.png"
-    },
-    {
-      "id": "8",
-      "title": "Web Development with HTML5 & CSS3",
-      "price": 89.99,
-      "image": "../DB/imgs/book2.png"
-    },
-    {
-      "id": "10",
-      "title": "Design Patterns in Java",
-      "price": 119.99,
-      "image": "../DB/imgs/book2.png"
-    },
-    {
-      "id": "30",
-      "title": "shoshana",
-      "price": "25",
-      "imageUrl": "../DB/imgs/book1.png"
-    },
-    {
-      "id": "39",
-      "title": "grilak",
-      "price": "35",
-      "imageUrl": "../DB/imgs/book2.png"
-    },
-    {
-      "id": "35",
-      "title": "shoshanaנינ",
-      "price": "5",
-      "imageUrl": "../DB/imgs/book1.png"
-    },
-    {
       "id": "1",
       "title": "JavaScript for Beginners",
-      "price": "2",
-      "imageUrl": "../DB/imgs/book2.png"
+      "price": 29.99,
+      "image": "../DB/imgs/book1.png",
+      "status": false
+    },
+    {
+      "id": "2",
+      "title": "Learning React",
+      "price": 39.99,
+      "image": "../DB/imgs/book2.png",
+      "status": false
     },
     {
       "id": "3",
-      "title": "shoshana",
-      "price": "2",
-      "imageUrl": "../DB/imgs/book1.png"
+      "title": "Data Structures with Java",
+      "price": 49.99,
+      "image": "../DB/imgs/book3.png",
+      "status": false
+    },
+    {
+      "id": "4",
+      "title": "Artificial Intelligence: A Guide",
+      "price": 89.99,
+      "image": "../DB/imgs/book4.png",
+      "status": false
+    },
+    {
+      "id": "5",
+      "title": "The Complete Guide to Node.js",
+      "price": 59.99,
+      "image": "../DB/imgs/book5.png",
+      "status": false
+    },
+    {
+      "id": "6",
+      "title": "Understanding TypeScript",
+      "price": 39.99,
+      "image": "../DB/imgs/book6.png",
+      "status": false
+    },
+    {
+      "id": "7",
+      "title": "Web Development with HTML5 & CSS3",
+      "price": 34.99,
+      "image": "../DB/imgs/book7.png",
+      "status": false
+    },
+    {
+      "id": "8",
+      "title": "Design Patterns in Java",
+      "price": 74.99,
+      "image": "../DB/imgs/book8.png",
+      "status": false
+    },
+    {
+      "id": "9",
+      "title": "Python for Data Analysis",
+      "price": 49.99,
+      "image": "../DB/imgs/book9.png",
+      "status": false
+    },
+    {
+      "id": "10",
+      "title": "Introduction to Machine Learning",
+      "price": 79.99,
+      "image": "../DB/imgs/book10.png",
+      "status": false
+    },
+    {
+      "id": "11",
+      "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "price": 59.99,
+      "image": "../DB/imgs/book11.png",
+      "status": false
+    },
+    {
+      "id": "12",
+      "title": "The Pragmatic Programmer",
+      "price": 39.99,
+      "image": "../DB/imgs/book12.png",
+      "status": false
+    },
+    {
+      "id": "13",
+      "title": "You Don't Know JS",
+      "price": 29.99,
+      "image": "../DB/imgs/book13.png",
+      "status": false
+    },
+    {
+      "id": "14",
+      "title": "Eloquent JavaScript",
+      "price": 29.99,
+      "image": "../DB/imgs/book14.png",
+      "status": false
+    },
+    {
+      "id": "15",
+      "title": "Learning Python",
+      "price": 39.99,
+      "image": "../DB/imgs/book15.png",
+      "status": false
+    },
+    {
+      "id": "16",
+      "title": "Java in a Nutshell",
+      "price": 49.99,
+      "image": "../DB/imgs/book16.png",
+      "status": false
+    },
+    {
+      "id": "17",
+      "title": "Ruby on Rails Tutorial",
+      "price": 34.99,
+      "image": "../DB/imgs/book17.png",
+      "status": false
+    },
+    {
+      "id": "18",
+      "title": "Learning PHP, MySQL & JavaScript",
+      "price": 49.99,
+      "image": "../DB/imgs/book18.png",
+      "status": false
+    },
+    {
+      "id": "19",
+      "title": "Head First Java",
+      "price": 39.99,
+      "image": "../DB/imgs/book19.png",
+      "status": false
+    },
+    {
+      "id": "20",
+      "title": "Programming in the Key of Java",
+      "price": 34.99,
+      "image": "../DB/imgs/book20.png",
+      "status": false
     }
   ]
 }

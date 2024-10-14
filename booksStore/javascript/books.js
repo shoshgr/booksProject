@@ -1,6 +1,8 @@
+let books, length;
 window.onload = function () {
     let currentPage = 1;
     const itemsPerPage = 5;
+
 
 
     async function fetchBooks() {
@@ -9,10 +11,10 @@ window.onload = function () {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            const books = await response.json();
+            books = await response.json();
             console.log(books);
-            displayBooks(books);
-            setupPagination(books.length);
+            length = books.length;
+            displayBooks();
             return books;
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
@@ -25,7 +27,8 @@ window.onload = function () {
         document.getElementById("nextPage").disabled = currentPage === Math.ceil(totalItems / itemsPerPage);
     }
 
-    function displayBooks(books) {
+    function displayBooks() {
+        setupPagination(length);
         const bookList = document.getElementById('book-list');
         bookList.innerHTML = '';
 
@@ -40,13 +43,19 @@ window.onload = function () {
             <td>${book.id}</td>
             <td>${book.title}</td>
             <td>${book.price}</td>
+            <td>${book.status ? 'Read' : 'Not Read'}</td>
             <td>
-                <button class="update-button" data-book='${JSON.stringify(book)}'>Update</button>
-                <button class="delete-button" data-id="${book.id}">Delete</button>
-                <button class="show-button" data-book='${JSON.stringify(book)}'>Show</button>
+                <button class="update-button" data-book='${JSON.stringify(book)}'>
+                    <i class="fas fa-edit"></i> <!-- אייקון של עדכון -->
+                </button>
+                <button class="delete-button" data-id="${book.id}">
+                    <i class="fas fa-trash"></i> <!-- אייקון של מחיקה -->
+                </button>
+                <button class="show-button" data-book='${JSON.stringify(book)}'>
+                    <i class="fas fa-eye"></i> <!-- אייקון של צפייה -->
+                </button>
             </td>
         `;
-
             bookList.appendChild(row);
         });
 
@@ -59,17 +68,30 @@ window.onload = function () {
     document.getElementById("prevPage").addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
-            fetchBooks();
+            displayBooks()
         }
     });
 
     document.getElementById("nextPage").addEventListener("click", () => {
         currentPage++;
-        fetchBooks();
+        displayBooks();
     });
 
 
     fetchBooks();
+
+    document.getElementById("sortPrice").addEventListener("change", () => {
+        const sortOrder = document.getElementById("sortPrice").value;
+        sortBooksByPrice(sortOrder);
+    });
+
+    function sortBooksByPrice(order) {
+        const sortedBooks = books.sort((a, b) => {
+            return order === "asc" ? a.price - b.price : b.price - a.price;
+        });
+        displayBooks(sortedBooks);
+        setupPagination(sortedBooks.length);
+    }
 
 
 
@@ -105,7 +127,7 @@ window.onload = function () {
         }
     }
     let showContainer, bookImage, imageTitle, bookPrice
-    
+
     function showBook(book) {
         showContainer = document.getElementById('showContainer');
         bookImage = document.getElementById('bookImage');
@@ -123,7 +145,7 @@ window.onload = function () {
         loadRating(book.id);
     }
 
-    document.getElementById('closeShowContainer').addEventListener('click', function() {
+    document.getElementById('closeShowContainer').addEventListener('click', function () {
         document.getElementById('showContainer').style.display = 'none';
     });
 
