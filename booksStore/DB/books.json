@@ -4,7 +4,7 @@
       "id": "2",
       "title": "Advanced Python Programming",
       "price": "130",
-      "imageUrl": "../DB/imgs/book2.png"
+      "imageUrl": "../DB/imgs/book1.png"
     },
     {
       "id": "4",
@@ -37,12 +37,6 @@
       "image": "../DB/imgs/book2.png"
     },
     {
-      "id": "9",
-      "title": "Introduction to Machine Learning",
-      "price": 159.99,
-      "image": "../DB/imgs/book1.png"
-    },
-    {
       "id": "10",
       "title": "Design Patterns in Java",
       "price": 119.99,
@@ -71,6 +65,12 @@
       "title": "JavaScript for Beginners",
       "price": "2",
       "imageUrl": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "3",
+      "title": "shoshana",
+      "price": "2",
+      "imageUrl": "../DB/imgs/book1.png"
     }
   ]
 }

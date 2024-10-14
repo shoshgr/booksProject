@@ -1,4 +1,8 @@
 window.onload = function () {
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+
     async function fetchBooks() {
         try {
             const response = await fetch('http://localhost:8080/books');
@@ -6,11 +10,69 @@ window.onload = function () {
                 throw new Error('Network response was not ok');
             }
             const books = await response.json();
+            console.log(books);
             displayBooks(books);
+            setupPagination(books.length);
+            return books;
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
+            return [];
         }
     }
+
+    function setupPagination(totalItems) {
+        document.getElementById("prevPage").disabled = currentPage === 1;
+        document.getElementById("nextPage").disabled = currentPage === Math.ceil(totalItems / itemsPerPage);
+    }
+
+    function displayBooks(books) {
+        const bookList = document.getElementById('book-list');
+        bookList.innerHTML = '';
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = Math.min(startIndex + itemsPerPage, books.length);
+        const paginatedBooks = books.slice(startIndex, endIndex);
+
+        paginatedBooks.forEach(book => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+            <td>${book.id}</td>
+            <td>${book.title}</td>
+            <td>${book.price}</td>
+            <td>
+                <button class="update-button" data-book='${JSON.stringify(book)}'>Update</button>
+                <button class="delete-button" data-id="${book.id}">Delete</button>
+                <button class="show-button" data-book='${JSON.stringify(book)}'>Show</button>
+            </td>
+        `;
+
+            bookList.appendChild(row);
+        });
+
+        document.getElementById("pageInfo").textContent = `Page ${currentPage} of ${Math.ceil(books.length / itemsPerPage)}`;
+        addEventListeners();
+    }
+
+
+
+    document.getElementById("prevPage").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            fetchBooks();
+        }
+    });
+
+    document.getElementById("nextPage").addEventListener("click", () => {
+        currentPage++;
+        fetchBooks();
+    });
+
+
+    fetchBooks();
+
+
+
 
     function updateBook(book) {
         const formContainer = document.getElementById('formContainer');
@@ -21,8 +83,8 @@ window.onload = function () {
         document.getElementById('bookId').value = book.id;
         document.getElementById('bookTitle').value = book.title;
         document.getElementById('bookPrice').value = book.price;
-        document.getElementById('bookImageUrl').value=book.image;
-        document.getElementById('bookImageUrl').ariaReadOnly
+        document.getElementById('bookImageUrl').value = book.image;
+        document.getElementById('bookImageUrl').ariaReadOnly;
     }
 
     function deleteBook(id) {
@@ -57,29 +119,6 @@ window.onload = function () {
         loadRating(book.id);
     }
 
-    function displayBooks(books) {
-        const bookList = document.getElementById('book-list');
-        bookList.innerHTML = '';
-
-        books.forEach(book => {
-            const row = document.createElement('tr');
-
-            row.innerHTML = `
-                <td>${book.id}</td>
-                <td>${book.title}</td>
-                <td>${book.price}</td>
-                <td>
-                    <button class="update-button" data-book='${JSON.stringify(book)}'>Update</button>
-                    <button class="delete-button" data-id="${book.id}">Delete</button>
-                    <button class="show-button" data-book='${JSON.stringify(book)}'>Show</button>
-                </td>
-            `;
-
-            bookList.appendChild(row);
-        });
-
-        addEventListeners();
-    }
 
     function addEventListeners() {
         const updateButtons = document.querySelectorAll('.update-button');
@@ -110,11 +149,11 @@ window.onload = function () {
 
     document.getElementById('addButton').addEventListener('click', function () {
         const formContainer = document.getElementById('formContainer');
-     
-        document.getElementById('bookId').value="";
-      document.getElementById('bookTitle').value="";
-       document.getElementById('bookPrice').value="";
-        document.getElementById('bookImageUrl').value="";
+
+        document.getElementById('bookId').value = "";
+        document.getElementById('bookTitle').value = "";
+        document.getElementById('bookPrice').value = "";
+        document.getElementById('bookImageUrl').value = "";
         formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
     });
 
@@ -138,7 +177,7 @@ window.onload = function () {
         };
 
         if (document.getElementById("updateBtn").style.display === "block") {
-          
+
             fetch(`http://localhost:8080/books/${bookId}`, {
                 method: 'PUT',
                 headers: {
@@ -161,7 +200,7 @@ window.onload = function () {
                     console.error('There was a problem with the fetch operation:', error);
                 });
         } else {
-           
+
             fetch('http://localhost:8080/books', {
                 method: 'POST',
                 headers: {

@@ -15,40 +15,43 @@
         </button>
     </header>
     <div id="container">
-        <h1>Book List</h1>
-        <table id="book-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="book-list"></tbody>
-        </table>
-
+        <div id="table">
+            <table id="book-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="book-list"></tbody>
+            </table>
+            <button id="prevPage" disabled>Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Next</button>
+        </div>
         <div id="formContainer" class="hidden" style="display: none;">
 
             <form class="form" id="addBookForm">
                 <label for="bookId">ID:</label>
-                <input type="number" id="bookId" >
+                <input type="number" id="bookId">
                 <label for="bookTitle">Title:</label>
-                <input type="text" id="bookTitle" >
+                <input type="text" id="bookTitle">
                 <label for="bookPrice">Price:</label>
-                <input type="number" id="bookPrice" >
+                <input type="number" id="bookPrice">
                 <label for="bookImageUrl">Image URL:</label>
-                <input type="text" id="bookImageUrl" >
+                <input type="text" id="bookImageUrl">
                 <button id="addBtn" type="submit">Add Book</button>
                 <button id="updateBtn" type="submit" style="display: none;">Update Book</button>
                 <button type="button" id="closeForm">Close</button>
             </form>
         </div>
-        <div id="showContainer" >
+        <div id="showContainer">
             <h2 id="imageTitle"></h2>
-            <h3 id="bookPrice"></h3> 
+            <h3 id="bookPrice"></h3>
             <img id="bookImage" src="" alt="Book Image" />
-            <div  class="rating">
+            <div class="rating">
                 <span class="star" data-value="5">☆</span>
                 <span class="star" data-value="4">☆</span>
                 <span class="star" data-value="3">☆</span>
