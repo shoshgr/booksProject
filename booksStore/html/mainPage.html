@@ -27,13 +27,16 @@
                 </thead>
                 <tbody id="book-list"></tbody>
             </table>
-            <button id="prevPage" disabled>Previous</button>
-            <span id="pageInfo"></span>
-            <button id="nextPage">Next</button>
+            <div id="arrowBtn"> <button class="arrowBtn" id="prevPage" disabled>Previous</button>
+                <span id="pageInfo"></span>
+                <button class="arrowBtn" id="nextPage">Next</button>
+            </div>
+
         </div>
         <div id="formContainer" class="hidden" style="display: none;">
 
             <form class="form" id="addBookForm">
+                <button type="button" id="closeForm"><span>X</span></button>
                 <label for="bookId">ID:</label>
                 <input type="number" id="bookId">
                 <label for="bookTitle">Title:</label>
@@ -44,12 +47,13 @@
                 <input type="text" id="bookImageUrl">
                 <button id="addBtn" type="submit">Add Book</button>
                 <button id="updateBtn" type="submit" style="display: none;">Update Book</button>
-                <button type="button" id="closeForm">Close</button>
+
             </form>
         </div>
         <div id="showContainer">
-            <h2 id="imageTitle"></h2>
-            <h3 id="bookPrice"></h3>
+            <button id="closeShowContainer">X</button>
+            <h4 id="imageTitle"></h4>
+            <p id="bookPrice"></p>
             <img id="bookImage" src="" alt="Book Image" />
             <div class="rating">
                 <span class="star" data-value="5">☆</span>

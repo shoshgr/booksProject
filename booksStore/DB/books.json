@@ -1,12 +1,6 @@
 {
   "books": [
     {
-      "id": "2",
-      "title": "Advanced Python Programming",
-      "price": "130",
-      "imageUrl": "../DB/imgs/book1.png"
-    },
-    {
       "id": "4",
       "title": "Data Structures with Java",
       "price": 89.99,

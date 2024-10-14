@@ -104,21 +104,28 @@ window.onload = function () {
                 });
         }
     }
-
+    let showContainer, bookImage, imageTitle, bookPrice
+    
     function showBook(book) {
-        const showContainer = document.getElementById('showContainer');
-        const bookImage = document.getElementById('bookImage');
-        const imageTitle = document.getElementById('imageTitle');
-        const bookPrice = document.getElementById('bookPrice');
+        showContainer = document.getElementById('showContainer');
+        bookImage = document.getElementById('bookImage');
+        imageTitle = document.getElementById('imageTitle');
+        bookPrice = document.getElementById('bookPrice');
+        bookPrice.innerHTML = "price : $" + book.price;
 
         bookImage.src = book.image;
+
         imageTitle.textContent = book.title;
-        bookPrice.textContent = "price : $" + book.price;
-        showContainer.style.display = showContainer.style.display === "none" ? "block" : "none";
+
+        showContainer.style.display = "flex";
+
         showContainer.setAttribute('data-book-id', book.id);
         loadRating(book.id);
     }
 
+    document.getElementById('closeShowContainer').addEventListener('click', function() {
+        document.getElementById('showContainer').style.display = 'none';
+    });
 
     function addEventListeners() {
         const updateButtons = document.querySelectorAll('.update-button');
