@@ -29,16 +29,18 @@
         </table>
 
         <div id="formContainer" class="hidden" style="display: none;">
-            <form id="addBookForm">
+
+            <form class="form" id="addBookForm">
                 <label for="bookId">ID:</label>
-                <input type="number" id="bookId" required>
+                <input type="number" id="bookId" >
                 <label for="bookTitle">Title:</label>
-                <input type="text" id="bookTitle" required>
+                <input type="text" id="bookTitle" >
                 <label for="bookPrice">Price:</label>
-                <input type="number" id="bookPrice" required>
+                <input type="number" id="bookPrice" >
                 <label for="bookImageUrl">Image URL:</label>
-                <input type="text" id="bookImageUrl" required>
-                <button type="submit">Add Book</button>
+                <input type="text" id="bookImageUrl" >
+                <button id="addBtn" type="submit">Add Book</button>
+                <button id="updateBtn" type="submit" style="display: none;">Update Book</button>
                 <button type="button" id="closeForm">Close</button>
             </form>
         </div>

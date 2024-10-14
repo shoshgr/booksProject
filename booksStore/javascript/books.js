@@ -12,8 +12,17 @@ window.onload = function () {
         }
     }
 
-    function updateBook(id) {
-        alert(`Update book with ID: ${id}`);
+    function updateBook(book) {
+        const formContainer = document.getElementById('formContainer');
+        formContainer.style.display = "block";
+
+        document.getElementById("addBtn").style.display = "none";
+        document.getElementById("updateBtn").style.display = "block";
+        document.getElementById('bookId').value = book.id;
+        document.getElementById('bookTitle').value = book.title;
+        document.getElementById('bookPrice').value = book.price;
+        document.getElementById('bookImageUrl').value=book.image;
+        document.getElementById('bookImageUrl').ariaReadOnly
     }
 
     function deleteBook(id) {
@@ -38,17 +47,15 @@ window.onload = function () {
         const showContainer = document.getElementById('showContainer');
         const bookImage = document.getElementById('bookImage');
         const imageTitle = document.getElementById('imageTitle');
-        const bookPrice = document.getElementById('bookPrice'); 
+        const bookPrice = document.getElementById('bookPrice');
 
         bookImage.src = book.image;
         imageTitle.textContent = book.title;
-        console.log(book.price);
-        bookPrice.textContent = "price : $"+book.price; 
-        showContainer.style.display = showContainer.style.display === "none" ? "inline" : "none";
+        bookPrice.textContent = "price : $" + book.price;
+        showContainer.style.display = showContainer.style.display === "none" ? "block" : "none";
         showContainer.setAttribute('data-book-id', book.id);
         loadRating(book.id);
     }
-    
 
     function displayBooks(books) {
         const bookList = document.getElementById('book-list');
@@ -62,7 +69,7 @@ window.onload = function () {
                 <td>${book.title}</td>
                 <td>${book.price}</td>
                 <td>
-                    <button class="update-button" data-id="${book.id}">Update</button>
+                    <button class="update-button" data-book='${JSON.stringify(book)}'>Update</button>
                     <button class="delete-button" data-id="${book.id}">Delete</button>
                     <button class="show-button" data-book='${JSON.stringify(book)}'>Show</button>
                 </td>
@@ -81,8 +88,8 @@ window.onload = function () {
 
         updateButtons.forEach(button => {
             button.addEventListener('click', function () {
-                const id = this.dataset.id;
-                updateBook(id);
+                const book = JSON.parse(this.dataset.book);
+                updateBook(book);
             });
         });
 
@@ -103,14 +110,19 @@ window.onload = function () {
 
     document.getElementById('addButton').addEventListener('click', function () {
         const formContainer = document.getElementById('formContainer');
-        formContainer.style.display = formContainer.style.display === "none" ? "inline" : "none";
+     
+        document.getElementById('bookId').value="";
+      document.getElementById('bookTitle').value="";
+       document.getElementById('bookPrice').value="";
+        document.getElementById('bookImageUrl').value="";
+        formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
     });
 
     document.getElementById('closeForm').addEventListener('click', function () {
         document.getElementById('formContainer').style.display = "none";
     });
 
-    document.getElementById('addBookForm').addEventListener('submit', function (event) {
+    document.querySelector('.form').addEventListener('submit', function (event) {
         event.preventDefault();
 
         const bookId = document.getElementById('bookId').value;
@@ -125,27 +137,53 @@ window.onload = function () {
             imageUrl: bookImageUrl
         };
 
-        fetch('http://localhost:8080/books', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(bookData)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+        if (document.getElementById("updateBtn").style.display === "block") {
+          
+            fetch(`http://localhost:8080/books/${bookId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bookData)
             })
-            .then(data => {
-                console.log('Book added successfully:', data);
-                document.getElementById('formContainer').style.display = "none";
-                fetchBooks();
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Book updated successfully:', data);
+                    document.getElementById('formContainer').style.display = "none";
+                    fetchBooks();
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        } else {
+           
+            fetch('http://localhost:8080/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bookData)
             })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Book added successfully:', data);
+                    document.getElementById('formContainer').style.display = "none";
+                    fetchBooks();
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
     });
 
     fetchBooks();

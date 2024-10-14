@@ -1,16 +1,10 @@
 {
   "books": [
     {
-      "id": "1",
-      "title": "JavaScript for Beginners",
-      "price": 99.99,
-      "image": "../DB/imgs/book1.png"
-    },
-    {
       "id": "2",
       "title": "Advanced Python Programming",
-      "price": 129.99,
-      "image": "../DB/imgs/book2.png"
+      "price": "130",
+      "imageUrl": "../DB/imgs/book2.png"
     },
     {
       "id": "4",
@@ -53,6 +47,30 @@
       "title": "Design Patterns in Java",
       "price": 119.99,
       "image": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "30",
+      "title": "shoshana",
+      "price": "25",
+      "imageUrl": "../DB/imgs/book1.png"
+    },
+    {
+      "id": "39",
+      "title": "grilak",
+      "price": "35",
+      "imageUrl": "../DB/imgs/book2.png"
+    },
+    {
+      "id": "35",
+      "title": "shoshanaנינ",
+      "price": "5",
+      "imageUrl": "../DB/imgs/book1.png"
+    },
+    {
+      "id": "1",
+      "title": "JavaScript for Beginners",
+      "price": "2",
+      "imageUrl": "../DB/imgs/book2.png"
     }
   ]
 }
