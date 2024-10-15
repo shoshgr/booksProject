@@ -196,7 +196,7 @@ button {
     margin-left: 20px; 
 }
 
-#sortPrice {
+select {
     background-color: #FFF5CD; 
     border: 1px solid #ddd; 
     border-radius: 4px; 
@@ -216,3 +216,4 @@ button {
     border-color: #e78f81; 
     box-shadow: 0 0 5px rgba(231, 143, 129, 0.5); 
 }
+
