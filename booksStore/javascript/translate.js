@@ -77,7 +77,7 @@ document.getElementById('languageSelect').addEventListener('change', function ()
 function applyTranslations(lang) {
     const elements = {
         addButton: document.getElementById('addButton'),
-        sortPriceLabel: document.querySelector('label[for="sortPrice"]'),
+        sortPriceLabel: document.getElementById('sortPrice'),
         sortPriceLowHigh: document.querySelector('option[value="asc"]'),
         sortPriceHighLow: document.querySelector('option[value="desc"]'),
         prevPage: document.getElementById('prevPage'),
@@ -94,7 +94,7 @@ function applyTranslations(lang) {
     };
 
     elements.addButton.textContent = translations[lang].add;
-    elements.sortPriceLabel.textContent = translations[lang].sortPrice;
+   
     elements.sortPriceLowHigh.textContent = translations[lang].priceLowHigh;
     elements.sortPriceHighLow.textContent = translations[lang].priceHighLow;
     elements.prevPage.textContent = translations[lang].previous;

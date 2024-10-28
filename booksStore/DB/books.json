@@ -16,10 +16,9 @@
     },
     {
       "id": "3",
-      "title": "Data Structures with Java",
-      "price": 49.99,
-      "image": "../DB/imgs/book3.png",
-      "status": false
+      "title": "JavaScript for Beginners",
+      "price": "50",
+      "imageUrl": "../DB/imgs/book1.png"
     },
     {
       "id": "4",
@@ -103,13 +102,6 @@
       "title": "Learning Python",
       "price": 39.99,
       "image": "../DB/imgs/book15.png",
-      "status": false
-    },
-    {
-      "id": "16",
-      "title": "Java in a Nutshell",
-      "price": 49.99,
-      "image": "../DB/imgs/book16.png",
       "status": false
     },
     {
